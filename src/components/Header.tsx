@@ -1,102 +1,159 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingBag, Menu, X, Instagram } from "lucide-react";
+import { ShoppingBag, Menu, Instagram } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { motion, AnimatePresence } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 const navItems = [
   { label: "About", path: "/about" },
   { label: "Works", path: "/works" },
   { label: "Shop", path: "/shop" },
   { label: "Services", path: "/services" },
-  { label: "Contact", path: "/contact" },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { itemCount, setIsOpen } = useCart();
   const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const NavLink = ({ item }: { item: typeof navItems[0] }) => (
+    <Link
+      to={item.path}
+      onClick={() => setMobileOpen(false)}
+      className={`group relative text-xs font-medium tracking-widest uppercase transition-all hover:text-accent ${
+        location.pathname === item.path ? "text-accent" : "text-muted-foreground"
+      }`}
+    >
+      {item.label}
+      <span className={`absolute -bottom-1 left-0 h-[2px] bg-accent transition-all ${
+        location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+      }`} />
+    </Link>
+  );
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="container flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="font-heading text-xl md:text-2xl font-semibold tracking-wide text-primary">
-          Ethereal Muse Art
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+      isScrolled 
+        ? "py-3 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm" 
+        : "py-6 bg-transparent"
+    }`}>
+      <div className={`container transition-all duration-700 ${
+        isScrolled ? "flex items-center justify-between" : "flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
+      }`}>
+        {/* Logo - Ethereal Muse Art */}
+        <Link 
+          to="/" 
+          className={`font-heading tracking-widest transition-all duration-700 hover:text-accent ${
+            isScrolled ? "text-2xl" : "text-3xl lg:text-4xl text-center lg:text-left"
+          }`}
+        >
+          <span className="font-light text-primary">Ethereal</span>
+          <span className="text-accent">Muse</span>
+          <span className="font-light text-primary">Art</span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`text-sm font-body tracking-widest uppercase transition-colors hover:text-accent ${
-                location.pathname === item.path ? "text-accent" : "text-muted-foreground"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/* Desktop Navigation */}
+        <nav className={`hidden lg:flex items-center transition-all duration-700 ${
+          isScrolled ? "gap-8" : "gap-10"
+        }`}>
+          {navItems.map((item) => <NavLink key={item.path} item={item} />)}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <a
-            href="https://www.instagram.com/etherealmuseart/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-accent transition-colors"
-            aria-label="Instagram"
+        {/* Actions */}
+        <div className="flex items-center justify-center lg:justify-end gap-3">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="hidden md:flex hover:text-accent"
+            asChild
           >
-            <Instagram className="w-5 h-5" />
-          </a>
-          <button
+            <a
+              href="https://www.instagram.com/etherealmuseart/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="relative hover:text-accent"
             onClick={() => setIsOpen(true)}
-            className="relative text-muted-foreground hover:text-accent transition-colors"
             aria-label="Shopping cart"
           >
-            <ShoppingBag className="w-5 h-5" />
+            <ShoppingBag className="w-4 h-4" />
             {itemCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-accent text-accent-foreground text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+              <Badge className="absolute -top-1 -right-1 h-5 min-w-5 flex items-center justify-center p-0 text-[10px] font-bold">
                 {itemCount}
-              </span>
+              </Badge>
             )}
-          </button>
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          </Button>
+
+          {/* Mobile Menu */}
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+            <SheetTrigger asChild className="lg:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="w-5 h-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetHeader>
+                <SheetTitle className="font-heading text-left text-lg">
+                  <span className="font-light">Ethereal</span>
+                  <span className="text-accent">Muse</span>
+                  <span className="font-light">Art</span>
+                </SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col gap-1 mt-8">
+                {navItems.map((item) => (
+                  <Button
+                    key={item.path}
+                    variant="ghost"
+                    asChild
+                    className={`justify-start text-sm tracking-wider uppercase ${
+                      location.pathname === item.path ? "bg-accent/10 text-accent" : ""
+                    }`}
+                  >
+                    <Link to={item.path} onClick={() => setMobileOpen(false)}>
+                      {item.label}
+                    </Link>
+                  </Button>
+                ))}
+              </nav>
+              <Separator className="my-6" />
+              <Button
+                variant="outline"
+                className="w-full justify-start"
+                asChild
+              >
+                <a
+                  href="https://www.instagram.com/etherealmuseart/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="w-4 h-4 mr-2" />
+                  Follow on Instagram
+                </a>
+              </Button>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-
-      {/* Mobile nav */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden border-t border-border/50 bg-background"
-          >
-            <div className="container py-6 flex flex-col gap-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setMobileOpen(false)}
-                  className={`text-sm tracking-widest uppercase ${
-                    location.pathname === item.path ? "text-accent" : "text-muted-foreground"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

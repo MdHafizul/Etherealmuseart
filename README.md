@@ -1,73 +1,116 @@
-# Welcome to your Lovable project
+# Ethereal Muse Art
 
-## Project info
+A beautiful e-commerce website for Ethereal Muse Art, featuring handcrafted Islamic geometric art, Nikah Signage marriage certificates, and sampul raya collections from Malaysia.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- 🎨 **Portfolio Gallery** - Showcase of Islamic geometric artwork
+- 🛍️ **Shop** - E-commerce functionality with shopping cart
+- 📝 **Custom Services** - Nikah Signage packages with customization
+- 📱 **Responsive Design** - Mobile-first approach
+- ⚡ **Fast & Modern** - Built with Vite, React, and TypeScript
+- 🎭 **Smooth Animations** - Framer Motion for delightful interactions
+- 🎨 **Beautiful UI** - shadcn/ui components + Tailwind CSS
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Framework:** React 18 + TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui (Radix UI primitives)
+- **Animations:** Framer Motion
+- **Routing:** React Router v6
+- **Form Handling:** React Hook Form + Zod
+- **State Management:** React Context (Cart)
+- **Notifications:** Sonner
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v18 or higher)
+- npm or yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Clone the repository
+git clone <your-repo-url>
 
-Follow these steps:
+# Navigate to project directory
+cd Etherealmuseart
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available Scripts
 
-**Use GitHub Codespaces**
+```bash
+# Development server
+npm run dev
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Build for production
+npm run build
 
-## What technologies are used for this project?
+# Preview production build
+npm run preview
 
-This project is built with:
+# Run tests
+npm test
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Run tests in watch mode
+npm test:watch
 
-## How can I deploy this project?
+# Lint code
+npm run lint
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Project Structure
 
-## Can I connect a custom domain to my Lovable project?
+```
+src/
+├── assets/          # Images and static files
+├── components/      # React components
+│   ├── sections/   # Page sections (Hero, Services, etc.)
+│   └── ui/         # shadcn/ui components
+├── context/        # React Context providers
+├── data/           # Product and content data
+├── hooks/          # Custom React hooks
+├── lib/            # Utility functions
+├── pages/          # Route pages
+└── test/           # Test files
+```
 
-Yes, you can!
+## Key Pages
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- **Home** (`/`) - Hero, featured collections, services overview
+- **About** (`/about`) - Artist profile and story
+- **Works** (`/works`) - Portfolio gallery with filters
+- **Shop** (`/shop`) - Product catalog with cart
+- **Services** (`/services`) - Nikah Signage packages
+- **Contact** - Integrated in footer
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Deployment
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` folder, ready to deploy to any static hosting service (Netlify, Vercel, GitHub Pages, etc.).
+
+## License
+
+All rights reserved © Ethereal Muse Art
+
+## Contact
+
+For inquiries about the artwork or website, visit [etherealmuseart.com](https://etherealmuseart.com)
+

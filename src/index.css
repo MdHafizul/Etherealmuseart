@@ -126,4 +126,53 @@
   .hover-scale {
     @apply transition-transform duration-200 hover:scale-105;
   }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full hover:bg-muted-foreground/40;
+  }
+
+  /* Focus visible ring */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Transitions for interactive elements */
+  button, a, input, textarea {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Additional professional polish */
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:border-accent/50;
+  }
+
+  .button-slide {
+    @apply relative overflow-hidden;
+  }
+
+  .button-slide::before {
+    content: '';
+    @apply absolute inset-0 bg-accent/10 -translate-x-full transition-transform duration-300;
+  }
+
+  .button-slide:hover::before {
+    @apply translate-x-0;
+  }
 }
