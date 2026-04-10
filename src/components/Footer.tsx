@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone, Send, MessageCircle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +11,7 @@ import { toast } from "sonner";
 const footerLinks = [
   { label: "About", path: "/about" },
   { label: "Works", path: "/works" },
+  { label: "Clients", path: "/clients" },
   { label: "Shop", path: "/shop" },
   { label: "Services", path: "/services" },
 ];
@@ -68,10 +69,10 @@ export default function Footer() {
                 <div>
                   <p className="text-sm font-medium text-foreground">Email</p>
                   <a 
-                    href="mailto:hello@etherealmuseart.com" 
+                    href="mailto:etherealmuseartventures@gmail.com" 
                     className="text-sm text-muted-foreground hover:text-accent transition-colors"
                   >
-                    hello@etherealmuseart.com
+                    etherealmuseartventures@gmail.com
                   </a>
                 </div>
               </div>
@@ -79,22 +80,31 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-accent mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-sm font-medium text-foreground">Phone</p>
+                  <p className="text-sm font-medium text-foreground">Phone / WhatsApp</p>
                   <a 
-                    href="tel:+60123456789" 
-                    className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                    href="tel:+60183603504" 
+                    className="text-sm text-muted-foreground hover:text-accent transition-colors block"
                   >
-                    +60 12 345 6789
+                    +60 18-360 3504
+                  </a>
+                  <a 
+                    href="https://wa.me/60183603504" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-accent hover:text-primary transition-colors inline-flex items-center gap-1 mt-1"
+                  >
+                    <MessageCircle className="w-3 h-3" />
+                    Chat on WhatsApp
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 flex flex-wrap gap-3">
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto gap-2"
+                className="gap-2"
                 asChild
               >
                 <a
@@ -103,7 +113,22 @@ export default function Footer() {
                   rel="noopener noreferrer"
                 >
                   <Instagram className="w-4 h-4" />
-                  Follow on Instagram
+                  Instagram
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-2"
+                asChild
+              >
+                <a
+                  href="https://t.me/etherealmuseart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Send className="w-4 h-4" />
+                  Telegram
                 </a>
               </Button>
             </div>
@@ -221,15 +246,26 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground mb-4">
               Follow us for latest works, pop up store announcements, and behind the scenes glimpses.
             </p>
-            <a
-              href="https://www.instagram.com/etherealmuseart/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-accent hover:text-primary transition-colors"
-            >
-              <Instagram className="w-4 h-4" />
-              @etherealmuseart
-            </a>
+            <div className="space-y-2">
+              <a
+                href="https://www.instagram.com/etherealmuseart/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-accent hover:text-primary transition-colors"
+              >
+                <Instagram className="w-4 h-4" />
+                @etherealmuseart
+              </a>
+              <a
+                href="https://t.me/etherealmuseart"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-accent hover:text-primary transition-colors"
+              >
+                <Send className="w-4 h-4" />
+                Telegram Channel
+              </a>
+            </div>
           </div>
         </div>
 

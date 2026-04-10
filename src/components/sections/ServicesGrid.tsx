@@ -3,25 +3,16 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import nikahsignageImg from "@/assets/nikahnama-1.jpg";
-import sampulImg from "@/assets/sampul-raya-collection.jpg";
 import artDetail from "@/assets/art-detail-1.jpg";
 
 const services = [
   {
     id: 1,
-    title: "Nikah Signage",
+    title: "Nikah Nama",
     description: "Handcrafted marriage certificates with intricate Islamic geometric patterns",
     image: nikahsignageImg,
     price: "From RM 350",
     link: "/services",
-  },
-  {
-    id: 2,
-    title: "Sampul Raya",
-    description: "Elegant festive envelopes celebrating Hari Raya with timeless artistry",
-    image: sampulImg,
-    price: "From RM 15",
-    link: "/shop",
   },
   {
     id: 3,
@@ -57,7 +48,7 @@ export default function ServicesGrid() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {services.map((service, i) => (
             <motion.div
               key={service.id}
@@ -116,7 +107,7 @@ export default function ServicesGrid() {
           ))}
         </div>
 
-        {/* Nikah Signage Highlight */}
+        {/*  Highlight */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -129,10 +120,10 @@ export default function ServicesGrid() {
               <div>
                 <p className="text-xs tracking-[0.3em] uppercase text-accent mb-4 font-medium">Featured Service</p>
                 <h3 className="font-heading text-3xl lg:text-4xl text-primary mb-4 font-light">
-                  Nikah Signage  Sacred Marriage Contracts
+                  Nikah Nama  Sacred Marriage Contracts
                 </h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  A Nikah Signage is more than a marriage certificate  it is a sacred document that preserves the memory of your union. Each piece is hand illuminated with genuine gold leaf, featuring intricate Islamic geometric patterns and your chosen Quranic verses.
+                  A Nikah Nama is more than a marriage certificate  it is a sacred document that preserves the memory of your union. Each piece is hand illuminated with genuine gold leaf, featuring intricate Islamic geometric patterns and your chosen Quranic verses.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/services">
@@ -162,7 +153,7 @@ export default function ServicesGrid() {
               <div className="relative">
                 <img
                   src={nikahsignageImg}
-                  alt="Nikah Signage example"
+                  alt="Nikah Nama example"
                   className="w-full aspect-[4/3] object-cover rounded-sm shadow-2xl"
                 />
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-accent/30 rounded-sm" />

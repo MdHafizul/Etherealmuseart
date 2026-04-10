@@ -16,7 +16,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Handcrafted Islamic geometric Nikah Signage artwork" className="w-full h-full object-cover" />
+          <img src={heroImg} alt="Handcrafted Islamic geometric Nikah Nama artwork" className="w-full h-full object-cover" />
           {/* Enhanced multi-layered gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/70 to-background/95" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
@@ -46,7 +46,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-muted-foreground max-w-md mx-auto mb-12 text-sm md:text-base leading-relaxed"
           >
-            Where geometry meets devotion  bespoke illumination art, Nikah Signage, and curated Raya collections from Malaysia.
+            Where geometry meets devotion  bespoke illumination art, Nikah Nama, and curated Raya collections from Malaysia.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -65,7 +65,7 @@ export default function HomePage() {
               to="/services"
               className="group relative px-10 py-4 text-sm tracking-widest uppercase bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
-              <span className="relative z-10">Custom Nikah Signage</span>
+              <span className="relative z-10">Custom Nikah Nama</span>
             </Link>
           </motion.div>
         </div>
@@ -104,14 +104,14 @@ export default function HomePage() {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={nikahsignageImg} 
-                    alt="Bespoke Nikah Signage certificates" 
+                    alt="Bespoke Nikah Nama certificates" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
                 </div>
                 <CardHeader className="relative -mt-20 z-10">
                   <CardTitle className="text-2xl font-heading font-light text-primary-foreground mb-2">
-                    Nikah Signage Collection
+                    Nikah Nama Collection
                   </CardTitle>
                   <CardDescription className="text-primary-foreground/80">
                     Handcrafted marriage certificates adorned with sacred geometric patterns

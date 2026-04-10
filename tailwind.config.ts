@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ['"Cormorant Garamond"', "Georgia", "serif"],
+        artist: ['"Playfair Display"', "Georgia", "serif"],
         body: ["Outfit", "system-ui", "sans-serif"],
       },
       colors: {

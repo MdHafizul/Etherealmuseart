@@ -1,23 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingBag, Menu, Instagram } from "lucide-react";
-import { useCart } from "@/context/CartContext";
+import { Menu, Instagram, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 const navItems = [
-  { label: "About", path: "/about" },
   { label: "Works", path: "/works" },
-  { label: "Shop", path: "/shop" },
+  { label: "Clients", path: "/clients" },
   { label: "Services", path: "/services" },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { itemCount, setIsOpen } = useCart();
   const location = useLocation();
 
   useEffect(() => {
@@ -89,21 +85,6 @@ export default function Header() {
             </a>
           </Button>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative hover:text-accent"
-            onClick={() => setIsOpen(true)}
-            aria-label="Shopping cart"
-          >
-            <ShoppingBag className="w-4 h-4" />
-            {itemCount > 0 && (
-              <Badge className="absolute -top-1 -right-1 h-5 min-w-5 flex items-center justify-center p-0 text-[10px] font-bold">
-                {itemCount}
-              </Badge>
-            )}
-          </Button>
-
           {/* Mobile Menu */}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild className="lg:hidden">
@@ -136,20 +117,36 @@ export default function Header() {
                 ))}
               </nav>
               <Separator className="my-6" />
-              <Button
-                variant="outline"
-                className="w-full justify-start"
-                asChild
-              >
-                <a
-                  href="https://www.instagram.com/etherealmuseart/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <div className="space-y-2">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start"
+                  asChild
                 >
-                  <Instagram className="w-4 h-4 mr-2" />
-                  Follow on Instagram
-                </a>
-              </Button>
+                  <a
+                    href="https://www.instagram.com/etherealmuseart/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Instagram className="w-4 h-4 mr-2" />
+                    Follow on Instagram
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start"
+                  asChild
+                >
+                  <a
+                    href="https://t.me/etherealmuseart"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Send className="w-4 h-4 mr-2" />
+                    Join Telegram Channel
+                  </a>
+                </Button>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

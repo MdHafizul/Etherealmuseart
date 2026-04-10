@@ -13,7 +13,7 @@ const artistInfo = {
   achievements: [
     "10+ years of experience",
     "Featured in local exhibitions",
-    "100+ custom Nikah Signage created",
+    "100+ custom Nikah Nama created",
     "Traditional gold leaf illumination",
   ],
 };

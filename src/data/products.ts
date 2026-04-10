@@ -21,7 +21,7 @@ export interface Artwork {
   id: string;
   title: string;
   image: string;
-  category: "Nikah Signage" | "Sampul Raya" | "Illumination Art";
+  category: "Nikah Nama" | "Sampul Raya" | "Illumination Art";
   year: string;
 }
 
@@ -43,8 +43,8 @@ export const products: Product[] = [
 ];
 
 export const artworks: Artwork[] = [
-  { id: "a1", title: "Nikah Signage  Gold Illumination", image: nikahsignage1, category: "Nikah Signage", year: "2024" },
-  { id: "a2", title: "Nikah Signage  Classic Foliage", image: nikahsignage2, category: "Nikah Signage", year: "2024" },
+  { id: "a1", title: "Nikah Nama  Gold Illumination", image: nikahsignage1, category: "Nikah Nama", year: "2024" },
+  { id: "a2", title: "Nikah Nama  Classic Foliage", image: nikahsignage2, category: "Nikah Nama", year: "2024" },
   { id: "a3", title: "Azure Sampul Raya Collection", image: sampulBlue, category: "Sampul Raya", year: "2025" },
   { id: "a4", title: "Lavender Sampul Raya Collection", image: sampulPurple, category: "Sampul Raya", year: "2025" },
   { id: "a5", title: "Rose Sampul Raya Collection", image: sampulPink, category: "Sampul Raya", year: "2025" },
@@ -59,7 +59,7 @@ export const nikahSignagePackages: NikahSignagePackage[] = [
     id: "nn-classic",
     name: "Classic",
     price: 350,
-    description: "A beautifully handcrafted Nikah Signage with traditional Islamic geometric borders.",
+    description: "A beautifully handcrafted Nikah Nama with traditional Islamic geometric borders.",
     features: ["A4 size", "Gold leaf accents", "Custom names & date", "Quranic verse of choice", "Unframed"],
   },
   {
@@ -73,15 +73,8 @@ export const nikahSignagePackages: NikahSignagePackage[] = [
     id: "nn-bespoke",
     name: "Bespoke",
     price: 900,
-    description: "A fully bespoke Nikah Signage  collaborate directly with the artist for a one of a kind piece.",
-    features: ["Custom size", "Full colour palette choice", "Unlimited revisions", "Custom calligraphy", "Luxury framing", "Personal consultation", "Certificate of authenticity"],
+    description: "A fully bespoke Nikah Nama  collaborate directly with the artist for a one of a kind piece.",
+    features: ["Custom size", "Full colour palette choice", "Reasonable number of revisions", "Custom calligraphy", "Luxury framing", "Personal consultation", "Certificate of authenticity"],
   },
 ];
 
-export const experiences = [
-  { year: "2025", title: "Raya Pop-up Store  Bangsar Village", description: "Featured collection of sampul raya and art prints." },
-  { year: "2024", title: "Nikah Signage Exhibition  Islamic Arts Museum", description: "Solo showcase of handcrafted marriage certificates." },
-  { year: "2024", title: "Artisan Market  APW Bangsar", description: "Collaborative pop up with local Malaysian artisans." },
-  { year: "2023", title: "Illumination Workshop  KLCC", description: "Teaching traditional Islamic illumination techniques." },
-  { year: "2023", title: "Raya Collection Launch", description: "First limited edition sampul raya collection, sold out in 3 days." },
-];

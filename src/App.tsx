@@ -3,14 +3,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "@/context/CartContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CartDrawer from "@/components/CartDrawer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
-import About from "./pages/About";
 import Works from "./pages/Works";
-import Shop from "./pages/Shop";
+import Clients from "./pages/Clients";
 import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 
@@ -19,23 +17,20 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <CartProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Header />
-          <CartDrawer />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/works" element={<Works />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </CartProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Header />
+        <WhatsAppButton />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/works" element={<Works />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

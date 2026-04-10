@@ -42,7 +42,7 @@ export default function ContactPage() {
               <CardHeader>
                 <CardTitle className="font-heading text-2xl font-light">Let's Connect</CardTitle>
                 <CardDescription className="text-sm leading-relaxed">
-                  Whether you're interested in a custom Nikah Signage, a bulk order of sampul raya, or a collaboration  I'd love to hear from you.
+                  Whether you're interested in a custom Nikah Nama, a bulk order of sampul raya, or a collaboration  I'd love to hear from you.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">

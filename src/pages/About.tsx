@@ -41,7 +41,6 @@ export default function AboutPage() {
               <Badge variant="secondary" className="text-xs">Islamic Illumination</Badge>
               <Badge variant="secondary" className="text-xs">Tezhip</Badge>
               <Badge variant="secondary" className="text-xs">Traditional Techniques</Badge>
-              <Badge variant="secondary" className="text-xs">Nikah Signage Specialist</Badge>
             </div>
 
             <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
@@ -49,7 +48,7 @@ export default function AboutPage() {
                 Ethereal Muse Art was born from a deep reverence for the mathematical beauty found in Islamic geometric patterns — art that speaks of the infinite through finite lines and curves.
               </p>
               <p>
-                Based in <span className="text-accent font-medium">Ipoh, Perak, Malaysia</span>, the artist specialises in traditional Islamic illumination (tezhip), geometric pattern design, and bespoke Nikah Signage  handcrafted marriage certificates that transform a sacred document into a lifelong heirloom.
+                Based in <span className="text-accent font-medium">Ipoh, Perak, Malaysia</span>, the artist specialises in traditional Islamic illumination (tezhip), geometric pattern design, and bespoke Nikah Nama  handcrafted marriage certificates that transform a sacred document into a lifelong heirloom.
               </p>
               <p>
                 Each piece is meticulously created by hand using traditional techniques: <span className="text-accent font-medium">compass and straightedge constructions, natural pigments, shell gold, and careful burnishing</span>. The work bridges centuries of artistic heritage with contemporary Malaysian sensibilities.
