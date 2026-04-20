@@ -60,7 +60,7 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-accent mt-0.5 shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-foreground">Location</p>
-                  <p className="text-sm text-muted-foreground">Ipoh, Perak, Malaysia</p>
+                  <p className="text-sm text-muted-foreground">Malaysia</p>
                 </div>
               </div>
               

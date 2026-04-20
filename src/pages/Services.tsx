@@ -89,6 +89,35 @@ export default function NikahnmaPage() {
       features: ["Soft, calming palette", "Contemporary design", "Unique aesthetics"]
     },
   ];
+
+  const serviceTerms = [
+    {
+      number: "2",
+      title: "Payment Terms",
+      points: [
+        "A 50% deposit is required before work begins.",
+        "The remaining balance must be paid before delivery.",
+        "Work will only start after deposit is received.",
+      ],
+    },
+    {
+      number: "3",
+      title: "Copyright & Usage",
+      points: [
+        "All copyright remains with the Artist/Business.",
+        "Artwork is for personal use only.",
+        "Client may not reproduce, resell, or use for commercial purposes without permission.",
+      ],
+    },
+    {
+      number: "4",
+      title: "AI Restriction",
+      points: [
+        "The artwork may not be used for AI training, machine learning, or any digital generation.",
+      ],
+    },
+  ];
+
   return (
     <main className="pt-24 md:pt-28 min-h-screen">
       {/* Hero Section */}
@@ -456,6 +485,53 @@ export default function NikahnmaPage() {
               </CardContent>
             </Card>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Service Terms Section */}
+      <section className="container py-20 md:py-28">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 space-y-4"
+        >
+          <Badge variant="secondary" className="mx-auto text-xs tracking-widest uppercase">
+            Service Policy
+          </Badge>
+          <h2 className="font-artist text-4xl md:text-5xl text-primary font-light">Terms for Nikah Nama Services</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {serviceTerms.map((term, i) => (
+            <motion.div
+              key={term.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <Card className="h-full border-border shadow-md hover:shadow-lg transition-all duration-300 bg-background">
+                <CardHeader className="pb-4 border-b border-border/40">
+                  <CardDescription className="text-xs tracking-widest uppercase text-accent">
+                    {term.number}
+                  </CardDescription>
+                  <CardTitle className="text-2xl font-artist text-primary">{term.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <ul className="space-y-3">
+                    {term.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </section>
 

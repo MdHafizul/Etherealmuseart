@@ -7,7 +7,7 @@ import artistImg from "@/assets/artist.jpg";
 // Artist info
 const artistInfo = {
   name: "Ethereal Muse Art",
-  location: "Ipoh, Perak, Malaysia",
+  location: "Malaysia",
   description: "Master calligrapher and illumination artist specializing in Islamic geometric art. With over a decade of experience, each piece is crafted with dedication to traditional techniques and modern aesthetics.",
   bio: "Every artwork is a meditation in geometry, color, and devotion where mathematics meets spirituality. Inspired by the rich heritage of Islamic art from the Ottoman and Persian empires, we bring centuries old techniques into contemporary spaces.",
   achievements: [

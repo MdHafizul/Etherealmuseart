@@ -70,7 +70,7 @@ export default function ContactPage() {
                     </div>
                     <div className="flex-1">
                       <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Location</p>
-                      <p className="text-sm text-foreground font-medium">Ipoh, Perak, Malaysia</p>
+                      <p className="text-sm text-foreground font-medium">Malaysia</p>
                     </div>
                   </div>
 
